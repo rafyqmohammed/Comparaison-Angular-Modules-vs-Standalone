@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Product } from './product.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' }) // singleton
 export class ProductService {
+  private products: Product[] = [];
 
-  constructor() { }
+  getAll() { return this.products; }
+
+  add(product: Product) {
+    this.products.push(product);
+  }
+
+  delete(id: number) {
+    this.products = this.products.filter(p => p.id !== id);
+  }
 }
