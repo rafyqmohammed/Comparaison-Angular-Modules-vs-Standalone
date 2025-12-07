@@ -1,0 +1,12 @@
+<div class="product-form">
+  <input [(ngModel)]="name" placeholder="Product Name" />
+  <input [(ngModel)]="price" type="number" placeholder="Price" />
+  <button (click)="add()">Add Product</button>
+</div>
+
+<ul class="product-list">
+  <li *ngFor="let p of products">
+    {{ p.name }} - {{ p.price }} €
+    <button (click)="delete(p.id)">Delete</button>
+  </li>
+</ul>
