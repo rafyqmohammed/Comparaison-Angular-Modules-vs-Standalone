@@ -6,7 +6,7 @@
 
 <ul class="product-list">
   <li *ngFor="let p of products">
-    {{p.name}} - {{p.price}} €
+    {{ p.name }} - {{ p.price }} €
     <button (click)="delete(p.id)">Delete</button>
   </li>
 </ul>

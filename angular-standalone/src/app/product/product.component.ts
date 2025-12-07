@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { ProductService } from './product.service';
 import { Product } from './product.model';
 
 @Component({
   selector: 'app-product',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
@@ -18,8 +22,12 @@ export class ProductComponent {
   }
 
   add() {
-    if(this.name && this.price > 0) {
-      this.service.add({ id: Date.now(), name: this.name, price: this.price });
+    if (this.name && this.price > 0) {
+      this.service.add({
+        id: Date.now(),
+        name: this.name,
+        price: this.price
+      });
       this.name = '';
       this.price = 0;
     }

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
 
-@Injectable({ providedIn: 'root' }) // singleton
+@Injectable({ providedIn: 'root' })
 export class ProductService {
   private products: Product[] = [];
 
-  getAll() { return this.products; }
+  getAll() {
+    return this.products;
+  }
 
   add(product: Product) {
     this.products.push(product);
